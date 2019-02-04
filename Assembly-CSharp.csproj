@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\Game.cs" />
      <Compile Include="Assets\Scripts\GameSettings.cs" />
      <Compile Include="Assets\Scripts\GravityField.cs" />
+     <Compile Include="Assets\Scripts\Launchable.cs" />
      <Compile Include="Assets\Scripts\Mass.cs" />
      <Compile Include="Assets\Scripts\Mover.cs" />
      <Compile Include="Assets\Scripts\PathTracer.cs" />

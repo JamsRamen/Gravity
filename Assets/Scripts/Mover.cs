@@ -8,13 +8,21 @@ public class Mover : MonoBehaviour {
 
 	void Start () {
 		energy = velocity.sqrMagnitude / 2 + Game.field.Potential(Utility.Flatten(transform.position));
+	}
+
+	public void SetVelocity (Vector2 v) {
+		velocity = v;
+		energy = velocity.sqrMagnitude / 2 + Game.field.Potential(Utility.Flatten(transform.position));
+
 		Debug.Log (energy);
 	}
 
 	void FixedUpdate () {
 		float deltat = Time.fixedDeltaTime / 50;
+		float dist = 0;
+		int n = 1000;
 
-		for (int i = 0; i < 50; i++) {
+		while (dist < 0.15 && n > 0) {
 			Vector2 accel = Game.field.Field (Utility.Flatten(transform.position));
 
 			Vector3 newPos = new Vector3 (
@@ -28,11 +36,13 @@ public class Mover : MonoBehaviour {
 			velocity = velocity / velocity.magnitude * Mathf.Sqrt (2 * (energy - Game.field.Potential (Utility.Flatten (transform.position))));
 
 			if (Game.space.Intersect(new PointVolume(transform.position))) {
-				Destroy (this);
+				this.enabled = false;
 				return;
 			}
 
+			dist += (newPos - transform.position).magnitude;
 			transform.position = newPos;
+			n--;
 		}
 	}
 }

@@ -8,4 +8,13 @@ public class PathTracer : MonoBehaviour {
 	void Start () {
 		trailRenderer = GetComponent<TrailRenderer> ();
 	}
+
+	public void Enable () {
+		trailRenderer.enabled = true;
+	}
+	public void Disable () {
+		trailRenderer.Clear ();
+		trailRenderer.enabled = false;
+	}
+
 }

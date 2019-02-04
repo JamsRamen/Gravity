@@ -8,7 +8,7 @@ public class Planet : MonoBehaviour {
 
 	void OnEnable () {
 		if (volume == null) volume = new CircleVolume (transform.position, transform.lossyScale.x);
-		if (mass == null) mass = new PointMass (Mathf.Pow (transform.lossyScale.x, 2), transform.position);
+		if (mass == null) mass = new PointMass (Mathf.Pow (transform.lossyScale.x, 3), transform.position);
 
 		Game.field.Add (mass);
 		Game.space.Add (volume);

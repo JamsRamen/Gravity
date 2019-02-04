@@ -6,6 +6,6 @@ using UnityEngine;
 
 public static class GameSettings {
 	// Gravitational constant
-	public static float G = 100;
+	public static float G = 50;
 }
 
